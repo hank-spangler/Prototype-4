@@ -22,11 +22,6 @@ public class SpawnManager : MonoBehaviour
     {
         enemyCount = FindObjectsOfType<Enemy>().Length;
         
-        if(transform.position.y < -10)
-        {
-            Destroy(gameObject);
-        }
-        
         if(enemyCount == 0)
         {
             waveNumber++;
@@ -36,12 +31,12 @@ public class SpawnManager : MonoBehaviour
     }
 
     void SpawnEnemywave(int enemiesToSpawn)
-{
-    for (int i = 0; i < enemiesToSpawn; i++)
     {
-        Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        }
     }
-}
 
     private Vector3 GenerateSpawnPosition()
     {
